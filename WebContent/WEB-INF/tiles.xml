@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	
+	<definition name="layout.tiles" template="/WEB-INF/views/layout/baseLayout.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp"></put-attribute>
+		<put-attribute name="sideMenu" value="/WEB-INF/views/layout/sideMenu.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="index.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="Winelog"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="winelog.create.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="Create Winelog"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/winelog/createUpdate.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="winelog.update.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="Update Winelog"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/winelog/createUpdate.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="winelog.list.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="List Winelog"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/winelog/list.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="winelog.charts.tiles" extends="layout.tiles">
+		<put-attribute name="title" value="My Charts"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/winelog/charts.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>	
