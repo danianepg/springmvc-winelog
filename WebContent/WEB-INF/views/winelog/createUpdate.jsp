@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 
@@ -8,7 +10,9 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">${title}</h1>
+			<h1 class="page-header">
+				${title}			
+			</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -23,6 +27,8 @@
 
 							<f:form action="${action}" method="post" modelAttribute="wine"
 								role="form">
+								
+								<f:input path="id" cssClass="hidden"/>
 
 								<div class="row">
 									<div class="col-lg-6">

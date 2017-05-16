@@ -6,4 +6,5 @@ import br.com.danianepg.springmvcwinelog.domain.Wine;
 
 public interface WineRepository extends MongoRepository<Wine, String> {
 
+	Wine findById(String id);
 }

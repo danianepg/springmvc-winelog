@@ -5,7 +5,7 @@
 <tiles-definitions>
 	
 	<definition name="layout.tiles" template="/WEB-INF/views/layout/baseLayout.jsp">
-		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="title" value="Winelog"></put-attribute>
 		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp"></put-attribute>
 		<put-attribute name="sideMenu" value="/WEB-INF/views/layout/sideMenu.jsp"></put-attribute>
 		<put-attribute name="body" value=""></put-attribute>

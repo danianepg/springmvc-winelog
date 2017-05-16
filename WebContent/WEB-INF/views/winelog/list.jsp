@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:url var="actionEdit" value="${actionEdit}"></c:url>
+<c:url var="actionDelete" value="${actionDelete}"></c:url>
 
 <div id="page-wrapper" style="min-height: 296px;">
 	<div class="row">
@@ -28,14 +34,14 @@
 											<option value="100">100</option></select> entries
 									</label>
 								</div>
-							</div>  -->
+							</div>  
 							<div class="col-sm-12">
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<label>Search:<input type="search"
 										class="form-control input-sm" placeholder=""
 										aria-controls="dataTables-example"></label>
 								</div>
-							</div>
+							</div>-->
 						</div>
 						<div class="row">
 							<div class="col-sm-12">
@@ -49,52 +55,65 @@
 												aria-controls="dataTables-example" rowspan="1" colspan="1"
 												aria-sort="ascending"
 												aria-label="Rendering engine: activate to sort column descending"
-												style="width: 171px;">Wine</th>
+												>Wine</th>
 												
 											<th class="sorting" tabindex="0"
 												aria-controls="dataTables-example" rowspan="1" colspan="1"
 												aria-label="Browser: activate to sort column ascending"
-												style="width: 207px;">Type</th>
+												>Type</th>
 												
 											<th class="sorting" tabindex="0"
 												aria-controls="dataTables-example" rowspan="1" colspan="1"
 												aria-label="Platform(s): activate to sort column ascending"
-												style="width: 188px;">Winery</th>
+												>Winery</th>
 												
 											<th class="sorting" tabindex="0"
 												aria-controls="dataTables-example" rowspan="1" colspan="1"
 												aria-label="Engine version: activate to sort column ascending"
-												style="width: 148px;">Year</th>
+												>Year</th>
 												
 											<th class="sorting" tabindex="0"
 												aria-controls="dataTables-example" rowspan="1" colspan="1"
 												aria-label="CSS grade: activate to sort column ascending"
-												style="width: 108px;">Country</th>
+												>Country</th>
 												
 											<th class="sorting" tabindex="0"
 												aria-controls="dataTables-example" rowspan="1" colspan="1"
 												aria-label="CSS grade: activate to sort column ascending"
-												style="width: 108px;">Grade</th>
+												>Grade</th>
+												
+											<th class="" tabindex="0"
+												rowspan="1" colspan="1"
+												>Options</th>
 										</tr>
 									</thead>
 									<tbody>
-
-										<tr class="gradeA odd" role="row">
-											<td class="sorting_1">Gecko</td>
-											<td>Firefox 1.0</td>
-											<td>Win 98+ / OSX.2+</td>
-											<td class="center">1.7</td>
-											<td class="center">A</td>
-											<td class="center">A</td>
-										</tr>
-										<tr class="gradeA even" role="row">
-											<td class="sorting_1">Gecko</td>
-											<td>Firefox 1.5</td>
-											<td>Win 98+ / OSX.2+</td>
-											<td class="center">1.8</td>
-											<td class="center">A</td>
-											<td class="center">A</td>
-										</tr>
+									
+									<c:if test="${!empty wineList}">
+										<c:forEach items="${wineList}" var="wine" varStatus="loop">
+											
+											<tr class="gradeA ${loop.index % 2 == 0 ? 'even' : 'odd'}" role="row">
+												<td class="sorting_1">${wine.name}</td>
+												<td>${wine.type}</td>
+												<td>${wine.winery}</td>
+												<td>${wine.year}</td>
+												<td>${wine.country}</td>
+												<td>${wine.grade}</td>
+												<td style="text-align: center;">
+													
+													<a href="${actionEdit}?id=${wine.id}">
+											          <span class="glyphicon glyphicon-edit"></span>
+											        </a>
+											        
+											        <a href="${actionDelete}/${wine.id} ">
+											          <span class="glyphicon glyphicon-trash"></span>
+											        </a>
+											        
+												</td>
+											</tr>
+											
+										</c:forEach>
+									</c:if>
 										
 									</tbody>
 								</table>
