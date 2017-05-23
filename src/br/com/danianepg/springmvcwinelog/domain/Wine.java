@@ -28,7 +28,7 @@ public class Wine {
 	@Min(value = 1990, message = "Year must be greater than 1990!")
 	private Integer year;
 	
-	private String country;
+	private Country country;
 	
 	@Min(value = (long) 0.01, message = "Price must be greater than 0.01!")
 	private BigDecimal price;
@@ -83,11 +83,11 @@ public class Wine {
 		this.year = year;
 	}
 
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 

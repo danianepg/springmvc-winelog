@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.danianepg.springmvcwinelog.domain.Country;
 import br.com.danianepg.springmvcwinelog.domain.Wine;
+import br.com.danianepg.springmvcwinelog.repositories.CountryRepository;
 import br.com.danianepg.springmvcwinelog.repositories.WineRepository;
 
 @Controller
@@ -24,6 +26,9 @@ public class WineLogController {
 	@Autowired
 	private WineRepository wineRepository;
 	
+	@Autowired
+	private CountryRepository countryRepository;
+	
 	@RequestMapping(value = "/addupdate", method = RequestMethod.GET)
 	public String addUpdate(Model model, @RequestParam(value = "id", required = false) String id ) {
 		
@@ -32,7 +37,7 @@ public class WineLogController {
 		if(id != null && !id.isEmpty()) {
 			
 			model.addAttribute("formAction", "/winelog/update");
-			//model.addAttribute("title", "Create Winelog");
+			model.addAttribute("title", "Create Winelog");
 			
 			Wine wine = wineRepository.findById(id);
 			model.addAttribute("wine", wine);	
@@ -40,12 +45,14 @@ public class WineLogController {
 			
 		} else {
 		
-			//model.addAttribute("title", "Create Winelog");
+			model.addAttribute("title", "Update Winelog");
 			model.addAttribute("wine", new Wine());		
 			model.addAttribute("formAction", "/winelog/add");
 			
 		}
 		
+		model.addAttribute("countries", countryRepository.findAllByOrderByNameAsc());
+
 		return route;
 	}
 	

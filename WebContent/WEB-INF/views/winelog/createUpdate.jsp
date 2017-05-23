@@ -83,7 +83,11 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label>Country</label>
-											<f:input path="country" cssClass="form-control" />
+											<f:select path="country.id" cssClass="form-control">
+												<f:option value="0">(Select an option)</f:option>
+												<f:options items="${countries}" itemLabel="name" itemValue="id" />
+											</f:select>
+											
 										</div>
 									</div>
 									<div class="col-lg-6">&nbsp;</div>
