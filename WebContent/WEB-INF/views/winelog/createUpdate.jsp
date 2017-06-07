@@ -28,8 +28,7 @@
 							<f:form action="${action}" method="post" modelAttribute="wine"
 								role="form">
 								
-								<f:input path="id" cssClass="hidden"/>
-
+								
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="form-group">
@@ -83,7 +82,7 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label>Country</label>
-											<f:select path="country.id" cssClass="form-control">
+											<f:select path="country.id" cssClass="form-control"  >
 												<f:option value="0">(Select an option)</f:option>
 												<f:options items="${countries}" itemLabel="name" itemValue="id" />
 											</f:select>

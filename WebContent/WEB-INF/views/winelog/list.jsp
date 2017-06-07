@@ -97,7 +97,7 @@
 												<td>${wine.type}</td>
 												<td>${wine.winery}</td>
 												<td>${wine.year}</td>
-												<td>${wine.country}</td>
+												<td>${wine.country.name}</td>
 												<td>${wine.grade}</td>
 												<td style="text-align: center;">
 													

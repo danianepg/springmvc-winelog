@@ -37,7 +37,7 @@ public class WineLogController {
 		if(id != null && !id.isEmpty()) {
 			
 			model.addAttribute("formAction", "/winelog/update");
-			model.addAttribute("title", "Create Winelog");
+			model.addAttribute("title", "Update Winelog");
 			
 			Wine wine = wineRepository.findById(id);
 			model.addAttribute("wine", wine);	
@@ -45,7 +45,7 @@ public class WineLogController {
 			
 		} else {
 		
-			model.addAttribute("title", "Update Winelog");
+			model.addAttribute("title", "Create Winelog");
 			model.addAttribute("wine", new Wine());		
 			model.addAttribute("formAction", "/winelog/add");
 			

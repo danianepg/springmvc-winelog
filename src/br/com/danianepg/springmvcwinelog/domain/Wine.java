@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,6 +29,7 @@ public class Wine {
 	@Min(value = 1990, message = "Year must be greater than 1990!")
 	private Integer year;
 	
+	@DBRef
 	private Country country;
 	
 	@Min(value = (long) 0.01, message = "Price must be greater than 0.01!")
